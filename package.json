@@ -1,0 +1,29 @@
+{
+  "name": "gridsentinel",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "GridSentinel \u2014 graph neural network surrogate for cascading-outage risk on power transmission networks.",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview --port 4173",
+    "verify": "node ml/verify.js && node ml/gradcheck.js && node ml/e2e.js",
+    "check:sim": "node ml/verify.js",
+    "check:grad": "node ml/gradcheck.js",
+    "check:e2e": "node ml/e2e.js",
+    "train": "node ml/train.js --epochs 32",
+    "train:quick": "node ml/train.js --quick --epochs 6",
+    "ml": "node ml/train.js --epochs 32 && node ml/e2e.js",
+    "board": "node scripts/render-board.js"
+  },
+  "dependencies": {
+    "pinia": "^2.2.6",
+    "vue": "^3.5.13",
+    "vue-router": "^4.4.5"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.2.1",
+    "vite": "^5.4.11"
+  }
+}

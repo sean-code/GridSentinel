@@ -1,0 +1,291 @@
+/*
+  GridSentinel design system.
+
+  The interface has two registers, and the split is functional rather than
+  decorative. Anything that is a *reading surface* — numbers, tables, model
+  documentation — sits on cool drafting paper. Anything that is an *instrument*
+  — the network board, the cascade replay — sits on a dark inset panel where
+  luminance can carry meaning, because risk is encoded as light.
+
+  Colour is never used for decoration. Teal, amber and crimson mean secure,
+  watch and critical, in that order, everywhere in the product.
+*/
+
+:root {
+  /* Reading surfaces */
+  --paper: #e4e7e2;
+  --paper-2: #edefeb;
+  --card: #f7f8f5;
+  --rule: #c7cdc6;
+  --rule-soft: #d8ddd6;
+
+  /* Ink */
+  --ink: #14181c;
+  --ink-2: #4c5760;
+  --ink-3: #78838c;
+
+  /* Instrument panel */
+  --panel: #0b1014;
+  --panel-2: #131b22;
+  --panel-3: #1b2630;
+  --panel-rule: #24313c;
+  --panel-ink: #dbe4ea;
+  --panel-ink-2: #7e8f9c;
+
+  /* Structural accent */
+  --indigo: #2b3a67;
+  --indigo-2: #3f558f;
+
+  /* Risk scale — reading surfaces */
+  --secure: #12786f;
+  --watch: #b8791f;
+  --critical: #af2f45;
+
+  /* Risk scale — instrument panel (brighter, for dark backgrounds) */
+  --secure-lit: #2fb3a6;
+  --watch-lit: #f2b23e;
+  --critical-lit: #f0576f;
+
+  --shadow-card: 0 1px 0 rgba(20, 24, 28, 0.04), 0 1px 3px rgba(20, 24, 28, 0.06);
+  --shadow-panel: inset 0 1px 0 rgba(255, 255, 255, 0.04), 0 2px 14px rgba(11, 16, 20, 0.28);
+
+  --font-display: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
+  --font-body: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  --radius: 3px;
+  --radius-lg: 5px;
+  --max-width: 1360px;
+
+  color-scheme: light;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Faint drafting grid — the only ornament in the whole design, and it earns
+   its place by making the paper read as an engineering surface. */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image: linear-gradient(rgba(20, 24, 28, 0.024) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(20, 24, 28, 0.024) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+#app {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.021em;
+  line-height: 1.14;
+  margin: 0;
+}
+
+h1 {
+  font-size: clamp(2rem, 4.4vw, 3.25rem);
+  font-weight: 800;
+}
+h2 {
+  font-size: clamp(1.35rem, 2.4vw, 1.85rem);
+}
+h3 {
+  font-size: 1.08rem;
+  letter-spacing: -0.012em;
+}
+
+p {
+  margin: 0 0 1em;
+  max-width: 68ch;
+}
+
+a {
+  color: var(--indigo);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+a:hover {
+  color: var(--indigo-2);
+}
+
+code,
+.mono {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* --- Reusable primitives ------------------------------------------------ */
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin: 0;
+}
+
+.eyebrow--lit {
+  color: var(--panel-ink-2);
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--panel-rule);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-panel);
+  color: var(--panel-ink);
+}
+
+.shell {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.stat {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
+
+button {
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 14px;
+  border-radius: var(--radius);
+  border: 1px solid var(--rule);
+  background: var(--card);
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 500;
+  transition: background 0.14s ease, border-color 0.14s ease, color 0.14s ease;
+  white-space: nowrap;
+}
+.btn:hover:not(:disabled) {
+  background: #fff;
+  border-color: var(--ink-3);
+}
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.btn--primary {
+  background: var(--indigo);
+  border-color: var(--indigo);
+  color: #fff;
+}
+.btn--primary:hover:not(:disabled) {
+  background: var(--indigo-2);
+  border-color: var(--indigo-2);
+  color: #fff;
+}
+.btn--ghost {
+  background: transparent;
+  border-color: transparent;
+  color: var(--ink-2);
+}
+.btn--ghost:hover:not(:disabled) {
+  background: var(--paper-2);
+  border-color: var(--rule);
+}
+
+:focus-visible {
+  outline: 2px solid var(--indigo);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 13.5px;
+}
+th {
+  text-align: left;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  padding: 0 10px 7px;
+  border-bottom: 1px solid var(--rule);
+}
+td {
+  padding: 7px 10px;
+  border-bottom: 1px solid var(--rule-soft);
+}
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
