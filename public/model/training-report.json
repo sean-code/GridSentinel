@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-30T13:47:37.790Z",
+  "generatedAt": "2026-07-30T15:02:53.021Z",
   "riskThreshold": 0.15,
   "epochs": 32,
   "batchSize": 8,
@@ -49,7 +49,7 @@
       "meanRisk": 0.08009552451248185
     }
   },
-  "datasetBuildSeconds": 4.762,
+  "datasetBuildSeconds": 4.082,
   "training": {
     "graph": {
       "history": [
@@ -311,7 +311,7 @@
         }
       ],
       "bestEpoch": 30,
-      "seconds": 216.402
+      "seconds": 547.454
     },
     "blind": {
       "history": [
@@ -573,7 +573,7 @@
         }
       ],
       "bestEpoch": 26,
-      "seconds": 66.925
+      "seconds": 170.629
     }
   },
   "test": {
@@ -774,40 +774,40 @@
         "buses": 40,
         "circuits": 61,
         "contingencies": 61,
-        "simulatorMs": 7.4257,
-        "surrogateMs": 5.10069415,
-        "speedup": 1.455821459124343
+        "simulatorMs": 47.995916666666666,
+        "surrogateMs": 30.423688199999997,
+        "speedup": 1.577583767988612
       },
       {
         "buses": 70,
         "circuits": 103.33333333333333,
         "contingencies": 103.33333333333333,
-        "simulatorMs": 13.145947999999999,
-        "surrogateMs": 7.800553150000002,
-        "speedup": 1.6852584358072091
+        "simulatorMs": 24.719361000000003,
+        "surrogateMs": 17.09646945,
+        "speedup": 1.4458751891607655
       },
       {
         "buses": 110,
         "circuits": 172.5,
         "contingencies": 172.5,
-        "simulatorMs": 59.14458,
-        "surrogateMs": 12.241787,
-        "speedup": 4.831368165448394
+        "simulatorMs": 61.021708,
+        "surrogateMs": 24.024597925000002,
+        "speedup": 2.5399679191509295
       },
       {
         "buses": 160,
         "circuits": 269,
         "contingencies": 269,
-        "simulatorMs": 117.79584,
-        "surrogateMs": 18.430815325,
-        "speedup": 6.39124411605486
+        "simulatorMs": 147.42008349999998,
+        "surrogateMs": 51.52926355,
+        "speedup": 2.8609002602366895
       }
     ],
     "headline": {
       "buses": 160,
-      "simulatorMs": 117.79584,
-      "surrogateMs": 18.430815325,
-      "speedup": 6.39124411605486
+      "simulatorMs": 147.42008349999998,
+      "surrogateMs": 51.52926355,
+      "speedup": 2.8609002602366895
     }
   }
 }
