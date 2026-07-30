@@ -1,6 +1,6 @@
 # GridSentinel
 
-**A graph neural network that predicts cascading outage risk on a power transmission network — running entirely in the browser, with no backend.**
+**A graph neural network that predicts cascading outage risk on a power transmission network:**
 
 Live demo: _add your Vercel URL here_
 
@@ -59,7 +59,7 @@ Trained on 30–66 bus grids, then evaluated outside that range. Rank agreement 
 |---|---:|---:|---:|---:|
 | Spearman ρ | 0.72 | 0.62 | 0.81 | 0.83 |
 
-Size generalisation comes free with message passing — the same weights apply to a graph of any size.
+Size generalisation comes free with message passing; the same weights apply to a graph of any size.
 
 ---
 
@@ -86,7 +86,7 @@ Three decisions that are specific to this problem:
 
 1. **The edge gate.** In a power system a neighbour only matters to the extent that the circuit between you can deliver power. A circuit at 95% of rating through a storm is a weak coupling; a lightly loaded double circuit is a strong one. Plain neighbourhood averaging cannot express that, so the gate is conditioned on the eight per-circuit features.
 
-2. **Four layers, not two.** A bus's fate depends on whether the island it lands in still has generation — a question about a neighbourhood several hops wide. With fewer layers, buses at the end of long radial chains were systematically underscored.
+2. **Four layers, not two.** A bus's fate depends on whether the island it lands in still has generation, a question about a neighbourhood several hops wide. With fewer layers, buses at the end of long radial chains were systematically underscored.
 
 3. **A symmetric circuit head.** It sees the endpoints' sum and absolute difference rather than a concatenation, because a circuit has no direction and the representation should not invent one.
 

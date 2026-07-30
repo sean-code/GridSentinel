@@ -20,7 +20,7 @@ const report = computed(() => store.modelReport);
       <h1>How GridSentinel works</h1>
       <p class="lede">
         A power grid is a graph whose failures propagate along its edges. That is not a metaphor reached for after
-        picking the model — it is the reason the model is the right one.
+        picking the model; it is the reason the model is the right one.
       </p>
     </header>
 
@@ -31,8 +31,8 @@ const report = computed(() => store.modelReport);
           Grid operators run contingency analysis continuously: for every credible failure, what happens next? The hard
           part is that failures do not stay put. When a transmission circuit opens, its power has to go somewhere. It
           redistributes across the remaining circuits according to their impedances, and if that pushes another circuit
-          past its thermal rating, protection opens that one too. Repeat. Every large blackout on record —
-          the 2003 Northeast event, Italy the same year, India in 2012 — followed that loop.
+          past its thermal rating, protection opens that one too. Repeat. Every large blackout on record;
+          the 2003 Northeast event, Italy the same year, followed that loop.
         </p>
         <p>
           The consequence that matters is not which circuits opened. It is whether the network fragmented into islands,
@@ -60,7 +60,7 @@ const report = computed(() => store.modelReport);
           labels degenerate into noise.
         </p>
         <p>
-          Load flow uses the DC approximation — flat voltages, small angle differences, negligible resistance — which
+          Load flow uses the DC approximation; flat voltages, small angle differences, negligible resistance, which
           reduces the problem to a linear system per island and is the standard screening model in the industry.
           Generation dispatches proportionally to capacity; islands short of generation shed whole buses in the order a
           real under-frequency scheme would drop them, lowest voltage class and least interconnected first.
@@ -91,13 +91,13 @@ const report = computed(() => store.modelReport);
           <template v-if="report">{{ report.architecture.layers }}</template>
           <template v-else>four</template>
           rounds of message passing, which sets how far information travels. Fewer than that and buses at the end of
-          long radial chains were systematically underscored — they could not see far enough to find out whether there
+          long radial chains were systematically underscored; they could not see far enough to find out whether there
           was generation on the other side.
         </p>
         <p>
           Two heads share the trunk. The bus head also receives the raw input features alongside the learned embedding,
           so local evidence survives the message-passing stack. The circuit head is deliberately symmetric in its
-          endpoints — it sees their sum and their absolute difference rather than a concatenation — because a circuit
+          endpoints; it sees their sum and their absolute difference rather than a concatenation, because a circuit
           has no direction and the representation should not invent one.
         </p>
       </section>
@@ -111,7 +111,7 @@ const report = computed(() => store.modelReport);
         <p>
           The app is a static site with no backend, so the model has to run in the browser tab. Shipping a training
           framework to do that is not viable. More importantly, writing one forward pass means the network scoring your
-          grid right now is provably the network that produced the metrics on the model card — the training script and
+          grid right now is provably the network that produced the metrics on the model card; the training script and
           the browser import the same file. Train/serve skew is a whole category of bug that gets designed out rather
           than tested for.
         </p>
@@ -143,7 +143,7 @@ const report = computed(() => store.modelReport);
         </p>
         <p>
           Everything here runs on simulated data. That is a real limitation, not a footnote. What the project
-          demonstrates is the method — problem framing, an inductive bias matched to the physics, a controlled ablation,
+          demonstrates is the method; problem framing, an inductive bias matched to the physics, a controlled ablation,
           calibration, and a surrogate that is honest about where it helps.
         </p>
       </section>
@@ -158,7 +158,7 @@ npm run dev      # local development server
 npm run build    # static bundle in dist/</code></pre>
         <p>
           <code>npm run ml</code> rewrites the model weights and the training report, and the model card reads straight
-          from that report — so if you retrain, this site updates itself.
+          from that report; so if you retrain, this site updates itself.
         </p>
       </section>
     </article>
