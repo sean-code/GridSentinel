@@ -2,7 +2,7 @@
 
 **A graph neural network that predicts cascading outage risk on a power transmission network:**
 
-Live demo: grid-sentinel-five.vercel.app
+Live demo: https://grid-sentinel-five.vercel.app
 
 ---
 
